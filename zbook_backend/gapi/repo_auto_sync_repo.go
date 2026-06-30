@@ -30,7 +30,7 @@ func (server *Server) AutoSyncRepo(ctx context.Context, req *rpcs.AutoSyncRepoRe
 		return nil, status.Errorf(codes.PermissionDenied, "this repo not set auto sync token")
 	}
 	if repo.SyncToken.String != req.GetSyncToken() {
-		return nil, status.Errorf(codes.InvalidArgument, "invalied sync token")
+		return nil, status.Errorf(codes.InvalidArgument, "invalid sync token")
 	}
 
 	arg := db.ManualSyncRepoTxParams{
